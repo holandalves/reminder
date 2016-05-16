@@ -1,2 +1,2 @@
-# reminder
+# Reminder
 Reminder for goup users
