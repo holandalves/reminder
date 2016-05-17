@@ -4,7 +4,7 @@
   "description": "Reminder group",
   "main": "server.js",
   "scripts": {
-  	"start": "node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,8 @@
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "express-load": "^1.1.15",
-    "method-override": "^2.3.5"
+    "method-override": "^2.3.5",
+    "mysql": "^2.10.2",
+    "sequelize": "^3.23.2"
   }
 }
