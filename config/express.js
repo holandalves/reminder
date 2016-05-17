@@ -1,32 +1,19 @@
 var express = require('express');
 var load = require('express-load');
 var bodyParser = require('body-parser');
-fs = require('fs');
-
-var config = require('./config.json');
-
-// Configuration
-try {
-    var configJSON = fs.readFileSync(__dirname + "/config.json");
-    var config = JSON.parse(configJSON.toString());
-} catch(e) {
-    console.error("File config.json not found or is invalid: " + e.message);
-    process.exit(1);
-}
+var config = require('./config.js');
 
 module.exports = function() {
 
-	// config/express
 	var app = express();
-    var port = process.env.PORT || config.port;
-	// configuracao de ambiente
+    var port = config.getPort();
+
 	app.set('port',port);
 
-	//middleware
 	app.use(express.static('./public'));
 	
-	app.use(bodyParser.json()); // to support JSON-encoded bodies
-	app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({ extended: true }));
 
 	app.use(require('method-override')());
 	
