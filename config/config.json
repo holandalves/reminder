@@ -6,5 +6,10 @@
 		"client_id" : "",
 		"client_secret" : ""
 	},
-	"mongo" : ""
+	"db" : {
+		"host" : "localhost:3306",
+		"database" : "reminder",
+		"username" : "root",
+		"password" : ""	
+	}
 }
