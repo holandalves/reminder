@@ -1,11 +1,38 @@
-var database = require('../../config/database.js');
-var Sequelize = require('sequelize');
+"use strict";
 
-var db = database.get();
-var User = db.define('user', {
+module.exports = function(app) {
 
-  firstname: Sequelize.STRING,
-  email: Sequelize.TEXT,
-  password: Sequelize.TEXT,
-  date: Sequelize.DATE
-});
+  var db = app.get('db');
+  var DataTypes = app.get('sequelize');
+
+  var User = db.define('User', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    firstname: {
+      type: DataTypes.STRING
+    },
+    lastname: {
+      type: DataTypes.STRING
+    },
+    email: {
+      type: DataTypes.STRING
+    },
+    password: {
+      type: DataTypes.STRING
+    },
+    idfacebook: {
+      type: DataTypes.STRING
+    }
+  }, {
+    classMethod: {
+      associate: function(models) {
+        //User.hasMany(models)//
+      }
+    }
+  }
+);
+  return User;
+};
