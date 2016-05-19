@@ -1,10 +1,11 @@
+
 module.exports = function(app) {
 
-  	var homeController = app.controllers.home;
+  	var controller = app.controllers.home;
 
   	app.route('/')
-  	  .get(homeController.index);
-  	  //.post(contatoController.salvaContato);
+  	  .get(controller.home);
+  	  //.post(controller.saveUser);
 
   	// app.route('/contatos/:id')
   	//   .get(contatoController.obtemContato)

@@ -1,12 +1,8 @@
 module.exports = function() {
 	var controller = {};
 
-	controller.index = function(req, res) {
-		res.render('home', {nome: 'Reminder'});
-	};
-
-	controller.ola = function() {
-		console.log('Ola');
+	controller.home = function(req, res) {
+		res.render('home', {nome: 'Reminder API Nodejs'});
 	};
 
 	return controller;

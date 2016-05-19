@@ -1,21 +1,19 @@
-var sequelize = require('sequelize');
-var config = require('./config.json');
+var path      = require("path");
+var Sequelize = require('sequelize');
+var env       = process.env.NODE_ENV || "development";
+var config    = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
 
 exports.get = function (argument) {
+	var info = 'Project using environment '
+	+ env +" - database name: "
+	+ config.database + ' ('+config.dialect+')';
+	console.log(info);
 
-	var host = process.env.host || config.db.host,
-	    database = process.env.database || config.db.database,
-		username = process.env.username || config.db.username,
-		password = process.env.password || config.db.password,
-		db = new sequelize(database, username, password, {
-			host: host,
-			dialect: 'mysql',
-			pool: {
-				max: 5,
-				min: 0,
-				idle: 10000
-			}
-		});
+	var sequelize = new Sequelize(
+		config.database,
+		config.username,
+		config.password,
+		config.host);
+	return sequelize;
 
-	return db;
 }

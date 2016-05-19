@@ -1,29 +1,16 @@
 "use strict";
 
 module.exports = function(app) {
-
   var db = app.get('db');
   var DataTypes = app.get('sequelize');
 
-  var User = db.define('User', {
+  var Group = db.define('Group', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    firstname: {
-      type: DataTypes.STRING
-    },
-    lastname: {
-      type: DataTypes.STRING
-    },
-    email: {
-      type: DataTypes.STRING
-    },
-    password: {
-      type: DataTypes.STRING
-    },
-    idfacebook: {
+    title: {
       type: DataTypes.STRING
     }
   }, {
@@ -34,5 +21,5 @@ module.exports = function(app) {
     }
   }
 );
-  return User;
+  return Group;
 };
