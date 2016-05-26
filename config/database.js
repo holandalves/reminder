@@ -3,7 +3,7 @@ var Sequelize = require('sequelize');
 var env       = process.env.NODE_ENV || "development";
 var config    = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
 
-exports.get = function (argument) {
+exports.get = function() {
 	var info = 'Project using environment '
 	+ env +" - database name: "
 	+ config.database + ' ('+config.dialect+')';
