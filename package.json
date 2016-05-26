@@ -4,7 +4,9 @@
   "description": "Reminder group",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "npm run test-unit",
+    "test-unit": "mocha test/unit/*.test.js"
   },
   "repository": {
     "type": "git",
