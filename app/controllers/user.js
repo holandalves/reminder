@@ -14,6 +14,13 @@ module.exports = function(app) {
 				,ppassword = req.body.password
 				,pidfacebook = req.body.idfacebook;
 
+		if (!(pfirstname && plastname && pemail && ppassword)) {
+			res.sendStatus(200);
+			res.end();
+			console.log('All needed params not found');
+			return;
+		}
+
 		User.sync().then(function() {
 
 			var data = {
