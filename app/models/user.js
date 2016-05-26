@@ -18,7 +18,8 @@ module.exports = function(app) {
       type: DataTypes.STRING
     },
     email: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      validate: { isEmail: true }
     },
     password: {
       type: DataTypes.STRING
